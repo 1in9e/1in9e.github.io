@@ -1,0 +1,282 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>林歌博客</title>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Poppins', sans-serif;
+        }
+
+        :root {
+            --primary-color: #2a2a72;
+            --secondary-color: #009ffd;
+            --text-color: #ffffff;
+        }
+
+        body {
+            background: linear-gradient(rgba(0,0,0,0.5), rgba(0,0,0,0.5)), 
+                        url('https://images.unsplash.com/photo-1506744038136-46273834b3fb') center/cover fixed;
+            color: var(--text-color);
+            line-height: 1.6;
+            min-height: 100vh;
+        }
+
+        /* 导航栏 */
+        .navbar {
+            position: fixed;
+            top: 0;
+            width: 100%;
+            padding: 20px;
+            background: rgba(255, 255, 255, 0.1);
+            backdrop-filter: blur(10px);
+            z-index: 1000;
+        }
+
+        .nav-links {
+            display: flex;
+            justify-content: center;
+            gap: 30px;
+            list-style: none;
+        }
+
+        .nav-links a {
+            color: white;
+            text-decoration: none;
+            font-weight: 500;
+            transition: 0.3s;
+            padding: 10px 20px;
+            border-radius: 20px;
+        }
+
+        .nav-links a:hover {
+            background: rgba(255,255,255,0.2);
+        }
+
+        /* 主页内容 */
+        .hero {
+            height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            padding: 0 20px;
+        }
+
+        .hero-content h1 {
+            font-size: 4rem;
+            margin-bottom: 20px;
+            animation: slideUp 1s ease;
+        }
+
+        /* 社交媒体链接 */
+        .social-links {
+            display: flex;
+            justify-content: center;
+            gap: 30px;
+            margin-top: 40px;
+        }
+
+        .social-item {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            transition: 0.3s;
+        }
+
+        .social-item img {
+            width: 50px;
+            height: 50px;
+            margin-bottom: 10px;
+            border-radius: 12px;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.3);
+        }
+
+        .social-item a {
+            color: white;
+            text-decoration: none;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+
+        .social-item:hover {
+            transform: translateY(-5px);
+        }
+
+        .wechat-popup {
+            position: relative;
+        }
+
+        .wechat-qrcode {
+            display: none;
+            position: absolute;
+            bottom: 70px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 150px;
+            padding: 10px;
+            background: white;
+            border-radius: 10px;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.3);
+        }
+
+        .wechat-popup:hover .wechat-qrcode {
+            display: block;
+        }
+
+        /* 动画 */
+        @keyframes slideUp {
+            from {
+                opacity: 0;
+                transform: translateY(50px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        /* 响应式设计 */
+        @media (max-width: 768px) {
+            .hero-content h1 {
+                font-size: 2.5rem;
+            }
+            
+            .social-links {
+                flex-wrap: wrap;
+                gap: 20px;
+            }
+        }
+
+         /* 新增备案样式 */
+         .site-footer {
+            position: relative;
+            z-index: 1000;
+            background: rgba(0, 0, 0, 0.6);
+            padding: 15px 20px;
+            text-align: center;
+            backdrop-filter: blur(5px);
+        }
+
+        .footer-content a {
+            color: rgba(255,255,255,0.8);
+            font-size: 14px;
+            text-decoration: none;
+            transition: 0.3s;
+        }
+
+        .footer-content a:hover {
+            color: var(--secondary-color);
+            text-decoration: underline;
+        }
+
+        /* 调整主体内容高度 */
+        .hero {
+            min-height: calc(100vh - 60px); /* 为底部留出空间 */
+        }
+
+
+    </style>
+</head>
+<body>
+    <nav class="navbar">
+        <ul class="nav-links">
+            <li><a href="#home">首页</a></li>
+            <li><a href="#about">关于</a></li>
+        </ul>
+    </nav>
+
+    <section id="home" class="hero">
+        <div class="hero-content">
+            <h1>你好，我是<span style="color: var(--secondary-color)">林歌</span></h1>
+            
+            <div class="social-links">
+                <!-- 小红书 -->
+                <div class="social-item">
+                    <a href="https://www.xiaohongshu.com/user/profile/5f8a6b500000000001005f77?xsec_token=YBi0YWvznVJ0f6uxSkwFAyoSDIO3cte8NKXkdUMo6wQ-M=&xsec_source=app_share&xhsshare=CopyLink&appuid=5f8a6b500000000001005f77&apptime=1742014864&share_id=36dce782cd3a431182feca730fa55add" target="_blank">
+                        <svg style="width:50px;height:50px" viewBox="0 0 24 24">
+                            <path fill="currentColor" d="M19.5 3H4.5A1.5 1.5 0 0 0 3 4.5v15A1.5 1.5 0 0 0 4.5 21h15a1.5 1.5 0 0 0 1.5-1.5v-15A1.5 1.5 0 0 0 19.5 3m-7.35 14.5h-1.5V12h1.5v5.5m4.35-7.14c0 1-.6 1.64-1.47 1.64c-.87 0-1.47-.64-1.47-1.64s.6-1.64 1.47-1.64c.87 0 1.47.64 1.47 1.64M16 17.5h-1.5V15H16v2.5m-6.5-8.14c0 1-.6 1.64-1.47 1.64c-.87 0-1.47-.64-1.47-1.64s.6-1.64 1.47-1.64c.87 0 1.47.64 1.47 1.64M8 17.5H6.5V15H8v2.5"/>
+                        </svg>
+                        <span>小红书</span>
+                    </a>
+                </div>
+
+                <!-- 微信公众号 -->
+                <div class="social-item wechat-popup">
+                    <a href="#">
+                        <img src="imgs/wechat-qrcode.jpg" alt="微信公众号二维码">
+                        <span>微信公众号</span>
+                    </a>
+                    <img src="imgs/wechat-qrcode.jpg" class="wechat-qrcode" alt="二维码">
+                </div>
+
+                <!-- GitHub -->
+                <div class="social-item">
+                    <a href="https://github.com/1in9e" target="_blank">
+                        <i class="fab fa-github fa-3x"></i>
+                        <span>GitHub</span>
+                    </a>
+                </div>
+
+                <!-- 邮箱 -->
+                <div class="social-item">
+                    <a href="mailto:lin9e@qq.com">
+                        <i class="fas fa-envelope fa-3x"></i>
+                        <span>邮箱联系</span>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <script>
+        // 平滑滚动
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                document.querySelector(this.getAttribute('href')).scrollIntoView({
+                    behavior: 'smooth'
+                });
+            });
+        });
+
+        // 导航栏高亮
+        window.addEventListener('scroll', () => {
+            const sections = document.querySelectorAll('section');
+            const navLinks = document.querySelectorAll('.nav-links a');
+            
+            sections.forEach(section => {
+                const top = window.scrollY;
+                const offset = section.offsetTop - 100;
+                const height = section.offsetHeight;
+                const id = section.getAttribute('id');
+
+                if (top >= offset && top < offset + height) {
+                    navLinks.forEach(link => {
+                        link.classList.remove('active');
+                        if (link.getAttribute('href').includes(id)) {
+                            link.classList.add('active');
+                        }
+                    });
+                }
+            });
+        });
+    </script>
+
+    <!-- 新增底部备案信息 -->
+    <footer class="site-footer">
+        <div class="footer-content">
+            <a href="https://beian.miit.gov.cn/" target="_blank" rel="noopener noreferrer">
+                蜀ICP备16021883号-1  <!-- 请替换为实际备案号 -->
+            </a>
+        </div>
+    </footer>
+
+</body>
+</html>
